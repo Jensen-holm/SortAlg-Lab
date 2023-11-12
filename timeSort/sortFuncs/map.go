@@ -1,7 +1,7 @@
 package sortFuncs
 
 var SortFuncs = map[string]func([]int) []int{
-	"merge":     MergeSort,
-	"insertion": InsertionSort,
-	"bubble":    BubbleSort,
+	"merge sort":     MergeSort,
+	"insertion sort": InsertionSort,
+	"bubble sort":    BubbleSort,
 }
