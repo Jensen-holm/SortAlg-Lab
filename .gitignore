@@ -24,3 +24,4 @@ go.work
 
 .ipynb_checkpoints
 
+.DS_Store
