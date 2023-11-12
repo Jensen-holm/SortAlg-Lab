@@ -10,6 +10,7 @@ import (
 	r "sort/result"
 	s "sort/sortFuncs"
 	"sync"
+	"testing"
 	"time"
 )
 
@@ -102,4 +103,68 @@ func saveResults(results *r.Results) error {
 	}
 
 	return nil
+}
+
+func makeTestSlice() []int {
+	slice := make([]int, 0)
+	for i := 10; i >= 0; i-- {
+		slice = append(slice, i)
+	}
+	return slice
+}
+
+func correctSlice() []int {
+	slice := make([]int, 0)
+	for i := 0; i <= 10; i++ {
+		slice = append(slice, i)
+	}
+	return slice
+}
+
+func slicesEqual(slice1, slice2 []int) bool {
+	if len(slice1) != len(slice2) {
+		return false
+	}
+
+	for i := 0; i < len(slice1); i++ {
+		if slice1[i] != slice2[i] {
+			return false
+		}
+	}
+
+	return true
+}
+
+// TestMergeSort -> tests if merge sort sorts properly
+func TestMergeSort(t *testing.T) {
+	slice := makeTestSlice()
+	mergeSorted := s.MergeSort(slice)
+	correct := correctSlice()
+	equal := slicesEqual(mergeSorted, correct)
+
+	if !equal {
+		t.Errorf("Expected %d\ngot %d", correct, mergeSorted)
+	}
+}
+
+func TestInsertionSort(t *testing.T) {
+	slice := makeTestSlice()
+	insertionSorted := s.InsertionSort(slice)
+	correct := correctSlice()
+	equal := slicesEqual(insertionSorted, correct)
+
+	if !equal {
+		t.Errorf("Expected %d\ngot %d", correct, insertionSorted)
+	}
+}
+
+func TestBubbleSort(t *testing.T) {
+	slice := makeTestSlice()
+	bubbleSorted := s.BubbleSort(slice)
+	correct := correctSlice()
+	equal := slicesEqual(bubbleSorted, correct)
+
+	if !equal {
+		t.Errorf("Expected %d\ngot %d", correct, bubbleSorted)
+	}
 }
