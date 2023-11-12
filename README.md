@@ -5,5 +5,5 @@ Lab 7 for CIS 163, timing and comparing sorting algorithms
 
 `cd timeSort && go test`
 
-![](https://github.com/Jensen-holm/SortAlg-Lab/tree/main/go_test_demo.gif)
+![](https://github.com/Jensen-holm/SortAlg-Lab/blob/main/go_test_demo.gif)
 
